@@ -13,7 +13,6 @@ from torch.utils.data.sampler import SubsetRandomSampler
 from tqdm import tqdm
 from dataset import MultiImgDataset2,get_train_val_sampler
 
-
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('--train_path',type=str)
 parser.add_argument('--test_path',type=str)
@@ -21,6 +20,7 @@ parser.add_argument('--N_images',type=int,default=6)
 parser.add_argument('--bs_train',type=int,default=4)
 parser.add_argument('--bs_test',type=int,default=8)
 parser.add_argument('--model',type=str,default="densenet")
+parser.add_argument('-gpu','--list', nargs='+')
 
 args = parser.parse_args()
 
@@ -86,6 +86,10 @@ classifier = nn.Sequential(
 )
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if args.gpu:
+  print("Let's use", str(args.gpu), "GPUs!")
+  model = nn.DataParallel(model,device_ids=args.gpu)
+
 model.to(device)
 classifier.to(device)
 
