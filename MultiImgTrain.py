@@ -20,7 +20,7 @@ parser.add_argument('--N_images',type=int,default=6)
 parser.add_argument('--bs_train',type=int,default=4)
 parser.add_argument('--bs_test',type=int,default=8)
 parser.add_argument('--model',type=str,default="densenet")
-parser.add_argument('-gpu','--list', nargs='+')
+parser.add_argument('--gpu','--list', nargs='+')
 
 args = parser.parse_args()
 
@@ -88,7 +88,7 @@ classifier = nn.Sequential(
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 if args.gpu:
   print("Let's use", str(args.gpu), "GPUs!")
-  model = nn.DataParallel(model,device_ids=args.gpu)
+  model = nn.DataParallel(model,device_ids=[int(val) for val in args.gpu])
 
 model.to(device)
 classifier.to(device)
