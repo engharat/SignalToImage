@@ -1,0 +1,9 @@
+python signal_to_img2.py --csvpath ../../Downloads/ProcessedInput/tags_short.csv --source ../../Downloads/ProcessedInput/ --dest ./speriamo2
+Oppure versione parallala:
+python signal_to_img_parallel.py --csvpath ../../Downloads/ProcessedInput/tags_short.csv --source ../../Downloads/ProcessedInput/ --dest ./speriamo2
+Per avere il corrispettivo dataset in 1D numpy array:
+python signal_to_img_parallel.py --csvpath ../../Downloads/ProcessedInput/tags_short.csv --source ../../Downloads/ProcessedInput/ --dest ./speriamo2 --txt
+Per avere il corrispettivo dataset in plot numpy array:
+
+python signal_to_img_parallel.py --csvpath /mnt/ssd2/data_ponti/TestCases20220728_acciaio/tags_short_acciaio.csv --source /mnt/ssd2/data_ponti/TestCases20220728_acciaio/processedOutputs/ --dest /mnt/ssd2/data_ponti/TestCases20220728_acciaio/plot --plot --enlarge
+python MultiImgTrain.py --train_path ./proviamo --N_images 12
