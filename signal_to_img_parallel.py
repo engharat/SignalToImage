@@ -77,8 +77,8 @@ def main_func(parameter,label):
                 del item, fullpath,p
             elif args.plot:
                 plt.axis('off')
-                plt.axis("tight") 
-                plt.axis("image")
+#                plt.axis("tight") 
+#                plt.axis("image")
                 plt.plot(item)
                 plt.savefig(os.path.join(fullpath,key)+'.png',bbox_inches='tight')
                 plt.clf()

@@ -6,4 +6,4 @@ python signal_to_img_parallel.py --csvpath ../../Downloads/ProcessedInput/tags_s
 Per avere il corrispettivo dataset in plot numpy array:
 
 python signal_to_img_parallel.py --csvpath /mnt/ssd2/data_ponti/TestCases20220728_acciaio/tags_short_acciaio.csv --source /mnt/ssd2/data_ponti/TestCases20220728_acciaio/processedOutputs/ --dest /mnt/ssd2/data_ponti/TestCases20220728_acciaio/plot --plot --enlarge
-python MultiImgTrain.py --train_path ./proviamo --N_images 12
+python MultiImgTrain.py --train_path /mnt/ssd2/data_ponti/TestCases20220728_acciaio/plot --N_images 6
